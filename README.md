@@ -29,4 +29,4 @@ $ create-react-app --version
 - todo-spring is build and running successfully on http://localhost:8080/
 - run the app with:
   $ todo-react> yarn start
-# todoapp-react
+
