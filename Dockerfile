@@ -1,10 +1,9 @@
+FROM node:14-alpine 
 
-FROM node:14-alpine
+WORKDIR /frontend
 
-WORKDIR /todoapp-react
-
-COPY package.json /todoapp-react/
-COPY yarn.lock /todoapp-react/
+COPY package.json /frontend/
+COPY yarn.lock /frontend/
 
 RUN yarn install --frozen-lockfile
 
