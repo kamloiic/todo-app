@@ -30,3 +30,4 @@ $ create-react-app --version
 - run the app with:
   $ todo-react> yarn start
 
+# todo-app
