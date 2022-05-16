@@ -1,0 +1,61 @@
+version: '3.7'
+
+services:
+      
+  # backend service
+  app-server:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080" 
+    restart: always
+    depends_on: 
+      - db 
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/todo?createDatabaseIfNotExist=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root    
+    networks: 
+      - backend
+      - frontend
+
+  # frontend service 
+  app-client:
+    build:
+      context: frontend 
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: http://127.0.0.1:8080/api/task
+    ports:
+      - "3000:80" 
+    restart: always
+    depends_on:
+      - app-server
+    networks:
+      - frontend
+
+  # database service (mysql)
+  db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: todo
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend    
+
+ 
+  
+volumes:
+  db-data:
+
+networks:
+  backend:
+  frontend:    
