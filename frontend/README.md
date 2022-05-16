@@ -1,19 +1,23 @@
-# todo-react
+# Deploy the frontend React JS Application 
 
+## The ReactJS application
 
-to do spring app using spring boot and react.js
+### Objectives 
 
-requires spring boot code from https://github.com/kamloiic/todoapp-spring and running locally
+* Clone the git repository on the laptop 
+* Run the ReactJS frontend code in Dev Mode then build for Production 
+* Host the production build on Kubernetes
 
+### Prerequisities
 
-## prerequisities
+- Requires the **Backend Java**
 
-- node installed, my version:
+- Node installed, my version:
 
 $ node --version
 v17.8.0
 
-- yarn installed, my version:
+- Yarn installed, my version:
 
 $ yarn --version
 1.22.18
@@ -23,12 +27,42 @@ $ yarn --version
 $ create-react-app --version
 5.0.1
 
+- Make sure **git** is intalled, my version:
+$ git --version
+git version 2.32.0 (Apple Git-132)
 
-## to run
+## Run in Dev Mode 
 
-- todo-spring is build and running successfully on http://localhost:8080/
-- run the app with:
-  $ todo-react> yarn start
+This project was bootstrapped with Create React App.
 
-# todo-app
-# todo-app
+1. CLone the git repository to a directory on the laptop 
+  ```
+  <copy>
+  mkdir todo-app
+  cd todo-app
+  git clone https://github.com/kamloiic/todo-app.git
+  </copy>
+  ```
+
+2. Navigate to frontend 
+  ```
+  <copy>
+  cd todo-app/frontend
+  </copy>
+  ```
+
+3. Run the following yarn commands to install the required packages 
+  ```
+  <copy>
+  yarn install
+  </copy>
+  ```
+
+4. In the project directory, run the app in development mode
+  ```
+  <copy>
+  yarn start
+  </copy>
+  ```
+
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
