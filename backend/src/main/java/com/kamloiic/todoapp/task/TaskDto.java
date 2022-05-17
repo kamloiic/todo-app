@@ -5,6 +5,11 @@ public class TaskDto {
     private String name;
     private Boolean isComplete;
 
+    public TaskDto() {
+       
+    }
+
+
     public TaskDto(Long id, String name, Boolean isComplete) {
         this.id = id;
         this.name = name;

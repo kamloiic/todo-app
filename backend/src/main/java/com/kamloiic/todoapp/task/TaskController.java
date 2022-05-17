@@ -22,6 +22,7 @@ public class TaskController {
 
     @PostMapping
     public Task addTask(@RequestBody TaskDto task){
+        System.out.println(task);
         return taskService.addTask(task);
     }
 
