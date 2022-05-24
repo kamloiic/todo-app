@@ -1,35 +1,46 @@
-version: '3.1'
+version: '3'
 
 services:
-    
-    postgres:
-      image: postgres:latest
-      network_mode: bridge
-      container_name: postgres
-      expose:
-      - 5432
-      ports:
-        - 5432:5432
-      environment:
-          - POSTGRES_PASSWORD=loic
-          - POSTGRES_USER=loic
-          - POSTGRES_DB=task
-    todoapp:
-      image: todoapp:latest
-      network_mode: bridge
-      container_name: todoapp
-      expose:
-        - 8080
-      ports:
-        - 8080:8080
-      restart: unless-stopped
-      depends_on:
-        - postgres
-      links:
-        - postgres
+  db:
+    container_name: db
+    image: postgres
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment: 
+      - POSTGRESQL_USERNAME=taskuser
+      - POSTGRESQL_PASSWORD=123456
+      - POSTGRESQL_DATABASE=task
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+
+
+  backend: 
+    container_name: backend
+    build: ./backend
+    command:
+      - java -jar backend.jar
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/build/libs/todoapp-0.0.1-SNAPSHOT.jar:todo-app/backend/backend.jar
+
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    command: 
+      - yarn start 
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/todo-app/frontend
 
 volumes:
-  postgres-data: 
+  postgresql_data:
+    driver: local
+
+
+    
 
 
    
