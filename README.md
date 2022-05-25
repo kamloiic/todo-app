@@ -2,6 +2,10 @@
 
 This project shows how to run a todo application on Docker and on Kubernetes, using a Spring boot backend and a Rect.js frontend.
 
+![](images/architecture.png )
+
+![](images/ui.png )
+
 ## Features :
 
 * Retrieving the current list of todo tasks
@@ -19,9 +23,10 @@ This project shows how to run a todo application on Docker and on Kubernetes, us
 ## Installed technologies :
 
 - Java 11
-- React v18 
+- React 18 
 - Docker - https://docs.docker.com/install/
 - Docker compose - https://docs.docker.com/compose/install/
+- PostgresSQL 14.3
 
 
 ## **Project Setup**
