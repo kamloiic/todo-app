@@ -15,7 +15,7 @@ echo "configuring spring boot backend..."
 echo ""
 
 cd backend
-gradle clean build 
+gradle clean build -x test 
 cd ~/todo-app/ 
 
 echo "ok"
