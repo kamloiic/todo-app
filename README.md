@@ -2,112 +2,103 @@
 
 This project shows how to run a todo application on Docker and on Kubernetes, using a Spring boot backend and a Rect.js frontend.
 
+## Features :
 
-![](./images/ui.png )
-
-
-Here is an architecture of this todo application 
-
-
-![](./images/architecture.png )
-
-
-# Deploy the backend Docker Image to Kubernetes
-
-## Java backend application 
-
-This application uses APIs to handle data persistence. The backend implements five REST APIs including: 
 * Retrieving the current list of todo tasks
 * Adding a new todo task
 * Finding a todo task by its ID
 * Updating an existing todo task
 * Deleting a todo task
 
-### Objectives 
+### Objectives :
 
 * Build and deploy the Docker image of the application 
-* Deploy the image on Kubernetes 
-* Test the backend application 
+* Run the containerized application on Kubernetes  
 
-### Prerequistes
 
-This application requires: 
+## Installed technologies :
 
-* Java 11
-* Spring boot 2.6
-* MySQL 5.7
-* A Rest Client (ex: Postman) installed (to test the APIs)
+- Java 11
+- React v18 
+- Docker - https://docs.docker.com/install/
+- Docker compose - https://docs.docker.com/compose/install/
 
-# Deploy the frontend React JS Application 
 
-## The ReactJS application
+## **Project Setup**
+A ShellScript has been created to ease the configuration process. Giv permission to the file with the following command `sh ./init.sh` in the project root to run it.
 
-### Objectives 
+This script does the following:
 
-* Clone the git repository on the laptop 
-* Run the ReactJS frontend code in Dev Mode then build for Production 
-* Host the production build on Kubernetes
+1. Run Gradle _**clean**_ and _**build**_ inside the **backend** project folder.
+2. Run the _**yarn install**_ in the **frontend** project.
+3. Run _**docker-compose up --build**_ at the root to create and run the projects inside the Docker containers.
 
-### Prerequisities
 
-- Requires the **Backend Java**
+## Spring Boot Manual Setup
 
-- Node installed, my version: 17.8.0
-```
-node --version
-```
-
-- Yarn installed, my version: 1.22.18
+Before starting project containers using **Docker Compose** 
+Build the API project using **Gradle** with the following command:
 
 ```
-yarn --version
+ gradle clean build 
 ```
 
-- create-react-app installed, my version: 5.0.1
+This command will generate the .jar file that will be executed in the backend container.
+
+This command should be run in the terminal of the **backend** project root.
+
+
+## ReactJS manual configuration
+
+
+## Scripts
+
+After cloning the project, run the following command:
+
 ```
-create-react-app --version
+ yarn install
 ```
 
-- Make sure **git** is intalled, my version: 2.32.0 
+This command is responsible for installing the dependencies needed to run the project.
+
+Both commands must be run in the project's root terminal **frontend**.
+
+
+## Starting the containers and running the project
+
+Three containers were set up to create the application:
+
+- Postgresql database running on port 5432.
+- Spring Boot running on port 8080 using Java 17.
+- ReactJS running on port 3000.
+
+To start the containers and run the applications just run the following command in the project root where the _**docker-compose.yml**_ file is located:
+
 ```
-git --version
+  docker-compose up --build
 ```
 
-## Run in Dev Mode 
-
-This project was bootstrapped with Create React App.
-
-1. CLone the git repository to a directory on the laptop 
-  ```
-  mkdir todo-app
-  cd todo-app
-  git clone https://github.com/kamloiic/todo-app.git
-  ```
-
-2. Navigate to frontend 
-  ```
-  cd todo-app/frontend
-  ```
-
-3. Run the following yarn commands to install the required packages 
-  ```
-  yarn install
-  ```
-
-4. In the project directory, run the app in development mode
-  ```
-  yarn start
-  ```
-
-5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This command will download the images, create the containers and run them.
 
 
+## Accessing the application
+
+### Frontend
+
+After the containers are started you should be able to access the applications. Open in your browser the link http://localhost:3000 to access the frontend project. 
+
+### Backend
+
+Just like the frontend project, the backend will be running and can be accessed through the link http://localhost:8080/api/task.
 
 
+### Database
 
+The credentials to access the database for this application are as follows:
 
-
-
-
-
+- HOST: **localhost**
+- PORT: **5432**
+- USERNAME: **taskuser**
+- PASSWORD: **123456**
+- DATABASE NAME: **task**
 
