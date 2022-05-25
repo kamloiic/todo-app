@@ -1,4 +1,4 @@
-# ToDo-App version 1.0.
+# ToDo-App
 
 This project shows how to run a todo application on Docker and on Kubernetes, using a Spring boot backend and a Rect.js frontend.
 
@@ -6,7 +6,7 @@ This project shows how to run a todo application on Docker and on Kubernetes, us
 
 ![](images/ui.png )
 
-## Features :
+## Features 
 
 * Retrieving the current list of todo tasks
 * Adding a new todo task
@@ -14,13 +14,13 @@ This project shows how to run a todo application on Docker and on Kubernetes, us
 * Updating an existing todo task
 * Deleting a todo task
 
-### Objectives :
+### Objectives 
 
 * Build and deploy the Docker image of the application 
 * Run the containerized application on Kubernetes  
 
 
-## Installed technologies :
+## Installed technologies 
 
 - Java 11
 - React 18 
