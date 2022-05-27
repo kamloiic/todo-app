@@ -1,10 +1,11 @@
-name: Build
+name: project ci flow
 
 on:
   push:
-    branches:
-      - main 
-      - todo
+    branches: [master]
+  pull_request:
+    branches: [master]
+    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,11 +17,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+          cache: gradle
       - name: Build with Gradle
         uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
-          arguments: clean build
+          arguments: gradle clean build
           
           
