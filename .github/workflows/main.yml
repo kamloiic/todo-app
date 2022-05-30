@@ -39,7 +39,7 @@ jobs:
         context: ./frontend
         file: ./frontend/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.REACT_IMAGE_NAME }}:${{ github.sha }}
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.REACT_IMAGE_NAME }}:latest
 
     - name: Build and push Spring Boot Image
       id: spring-boot-docker_build
@@ -48,4 +48,4 @@ jobs:
         context: ./backend
         file: ./backend/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.SPRING_BOOT_IMAGE_NAME }}:${{ github.sha }}
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.SPRING_BOOT_IMAGE_NAME }}:latest
