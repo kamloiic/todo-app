@@ -8,14 +8,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  REACT_IMAGE_NAME: todo-app-client
-  REACT_CONTAINER_IMAGR: todo-app-client
-  REACT_DEPLOYMENT_NAME: todo-app-client
-  SPRING_BOOT_IMAGE_NAME: todo-app-server
-  SPRING_BOOT_CONTAINER_NAME: todo-app-server
-  SPRINNG_BOOT_DEPLOYMENT_NAME: todo-app-server
-
 
 jobs:
   build:
@@ -26,26 +18,19 @@ jobs:
     - name: Checkout main 
       uses: actions/checkout@main
 
-    - name: Login to Docker Hub
+    - name: Login to Github Container Registry
       uses: docker/login-action@v1
       with:
-        username: ${{ secrets.DOCKER_HUB_USERNAME }}
-        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        passwork: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and push React Image 
-      id: react_docker_build 
-      uses: docker/build-push-action@v2
-      with:
-        context: ./frontend
-        file: ./frontend/Dockerfile
-        push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.REACT_IMAGE_NAME }}:latest
-
+      run: |
+        docker build ./frontend --tag ghcr.io/kamloiic/todo-frontend:latest
+        docker push ghcr.io/kamloiic/todo-frontend:latest
+        
     - name: Build and push Spring Boot Image
-      id: spring-boot-docker_build
-      uses: docker/build-push-action@v2
-      with:
-        context: ./backend
-        file: ./backend/Dockerfile
-        push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ env.SPRING_BOOT_IMAGE_NAME }}:latest
+      run: |
+        docker build ./backend --tag ghcr.io/kamloiic/todo-backend:latest
+        docker push ghcr.io/kamloiic/todo-backend:latest
