@@ -108,8 +108,8 @@ The credentials to access the database for this application are as follows:
 - DATABASE NAME: **task**
 
 
-### CI/CD (Delivery) Pipelinne
- 
+## CI/CD (Delivery) Pipelinne
+
 
 ![](images/ci.png )
 
