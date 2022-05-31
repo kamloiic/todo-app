@@ -107,3 +107,12 @@ The credentials to access the database for this application are as follows:
 - PASSWORD: **123456**
 - DATABASE NAME: **task**
 
+
+### CI/CD (Delivery) Pipelinne
+ 
+
+![](images/ci.png )
+
+
+
+
