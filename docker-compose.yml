@@ -21,10 +21,13 @@ services:
       - "8080:8080"
     links:
       - db
+    restart: unless-stopped
+
 
   frontend:
     container_name: frontend
     build: ./frontend
+    restart: unless-stopped
     ports:
       - "3000:3000"
     links:
