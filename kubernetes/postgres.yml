@@ -14,7 +14,7 @@ metadata:
 spec:
   resources:
     requests:
-      storage: 31Gi
+      storage: 10Gi
   volumeMode: Filesystem
   accessModes:
     - ReadWriteOnce
@@ -35,10 +35,6 @@ spec:
       containers:
       - name: postgres
         image: postgres
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 5432
         env:

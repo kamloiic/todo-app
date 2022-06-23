@@ -1,0 +1,16 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: todo-app
+  namespace: default 
+spec:
+  serviceAccountName: default-ns-sa
+  fetch:
+    - git:
+        url: https://github.com/kamloiic/todo-app
+        ref: origin/main
+        subPath: kubernetes/
+  template:
+    - ytt: {}
+  deploy:
+    - kapp: {}
