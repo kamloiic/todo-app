@@ -1,38 +1,36 @@
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
-  name: todo-app-pkg.kamloic.github.com.1.0.0
+  name: todo-app-backend-pkg.kamloiic.github.com.1.0.0
 spec:
-  refName: todo-app-pkg.kamloiic.github.com
+  refName: todo-app-backend-pkg.kamloiic.github.com
   version: 1.0.0
   releaseNotes: |
-    First release of the todo app 
+    release backend service 
   valuesSchema:
     openAPIv3:
       title: Values schema
       examples:
         - svc_port: 80
           app_port: 80
-          time_format: ANSIC
       properties:
         svc_port:
           type: integer
-          description: Port number for the service.
+          description: port number for the service.
           default: 8080
           examples:
             - 8080
         app_port:
           type: integer
-          description: Target port for the application.
+          description: target port for the application.
           default: 8080
           examples:
             - 8080
-        
   template:
     spec:
       fetch:
         - imgpkgBundle:
-            image: ghcr.io/vladimirvivien/tanzu-packages/timeapp-pkg@sha256:3b22b78f32f72642daea927a98588887d5fc74a9281599a7caf56925b7d63f26
+            image: ghcr.io/kamloiic/todo-backend@sha256:df9c0d82cce18fa058ee9dc9dc4d9ab3fd9858d560ca522fc937b9a7b07ddc49
       template:
         - ytt:
             paths:

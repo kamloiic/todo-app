@@ -1,0 +1,9 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  # This will be the name of our package
+  name: todo-app-backend-pkg.kamloiic.github.com
+spec:
+  displayName: "todo app"
+  longDescription: "simple todo app"
+  shortDescription: "simple todo backend service"

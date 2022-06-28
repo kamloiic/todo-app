@@ -1,8 +1,0 @@
-apiVersion: data.packaging.carvel.dev/v1alpha1
-kind: PackageMetadata
-metadata:
-  # This will be the name of our package
-  name: todo-app-pkg.kamloiic.github.com
-spec:
-  displayName: "Todo App"
-  
