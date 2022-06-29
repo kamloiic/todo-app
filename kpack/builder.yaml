@@ -1,0 +1,20 @@
+apiVersion: kpack.io/v1alpha2
+kind: ClusterBuilder
+metadata:
+  name: todo-builder
+spec:
+  serviceAccountRef: 
+    name: service-account
+    namespace: default
+  tag: ghcr.io/kamloiic/todo-builder
+  stack:
+    name: base
+    kind: ClusterStack
+  store:
+    name: benoit
+    kind: ClusterStore
+  order:
+  - group:
+    - id: paketo-buildpacks/java
+  - group:
+    - id: paketo-buildpacks/nodejs
