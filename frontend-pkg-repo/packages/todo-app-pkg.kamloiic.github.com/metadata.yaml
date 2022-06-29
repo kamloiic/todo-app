@@ -1,9 +1,0 @@
-apiVersion: data.packaging.carvel.dev/v1alpha1
-kind: PackageMetadata
-metadata:
-  # This will be the name of our package
-  name: todo-app-frontend-pkg.kamloiic.github.com
-spec:
-  displayName: "todo app"
-  longDescription: "simple application that returns todo list"
-  shortDescription: "simple todo frontend service"

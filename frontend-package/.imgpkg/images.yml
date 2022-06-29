@@ -1,7 +1,0 @@
----
-apiVersion: imgpkg.carvel.dev/v1alpha1
-images:
-- annotations:
-    kbld.carvel.dev/id: ghcr.io/kamloiic/todo-frontend@sha256:135a7621cbc94560c2583edf861c628a463a61d5a5640c750c52f5f84453eb22
-  image: ghcr.io/kamloiic/todo-frontend@sha256:135a7621cbc94560c2583edf861c628a463a61d5a5640c750c52f5f84453eb22
-kind: ImagesLock
