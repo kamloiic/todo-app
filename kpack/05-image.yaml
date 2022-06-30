@@ -1,0 +1,33 @@
+apiVersion: kpack.io/v1alpha2
+kind: Image
+metadata:
+  name: todo-backend-kpack
+  namespace: todo-kpack
+spec:
+  tag: ghcr.io/kamloiic/todo-backend-kpack
+  serviceAccountName: service-account
+  builder:
+    name: todo-builder
+    kind: ClusterBuilder
+  source:
+    git:
+      url: https://github.com/kamloiic/todo-app/
+      revision: main
+    subPath: backend
+---
+apiVersion: kpack.io/v1alpha2
+kind: Image
+metadata:
+  name: todo-frontend-kpack
+  namespace: todo-kpack
+spec:
+  tag: ghcr.io/kamloiic/todo-frontend-kpack
+  serviceAccountName: service-account
+  builder:
+    name: todo-builder
+    kind: ClusterBuilder
+  source:
+    git:
+      url: https://github.com/kamloiic/todo-app/
+      revision: main
+    subPath: frontend

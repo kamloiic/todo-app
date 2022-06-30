@@ -1,0 +1,4 @@
+#! Set target namespace.
+NAMESPACE: kpack-viz
+#! Set the public-facing domain used for accessing the application.
+DOMAIN: viztodo.app.20.93.175.149.nip.io

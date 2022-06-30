@@ -3,16 +3,16 @@ kind: ClusterBuilder
 metadata:
   name: todo-builder
 spec:
-  serviceAccountRef: 
+  tag: ghcr.io/kamloiic/todo-builder    
+  serviceAccountRef:
     name: service-account
-    namespace: default
-  tag: ghcr.io/kamloiic/todo-builder
+    namespace: todo-kpack
   stack:
-    name: base
     kind: ClusterStack
+    name: todo-stack
   store:
-    name: benoit
     kind: ClusterStore
+    name: todo-store
   order:
   - group:
     - id: paketo-buildpacks/java
