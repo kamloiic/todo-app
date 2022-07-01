@@ -78,7 +78,6 @@ function App() {
           </header>
           <Container maxWidth="sm" spacing={2}>
             <form className={classes.root} noValidate onSubmit={handleAddTask}>
-              <div>benoit</div>
               <Paper>
                 <FormGroup >
                   <TextField id="task" label="new task" variant="filled" placeholder="new task"
