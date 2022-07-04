@@ -28,7 +28,7 @@ the credentials to access the database for this application are as follows:
 
 ### objectives
 
-* build and depoly the docker image of the application
+* build and deploy the docker image of the application
 * deploy the image on the tanzu community edition cluster on azure
 * test the backend application
 
@@ -80,7 +80,7 @@ example: `kubectl logs  -f backend-856b78b7fd-9pxck`
 
 <img src=images/logs.png width="" height="260" >
 
-## undeploy 
+## undeploy (optionnal)
 
 if we make changes to the image, we need to delete the service and the pods by running undeploy.sh then redo the deployment 
 

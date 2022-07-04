@@ -1,3 +1,4 @@
+cd ~/todo-app/kubernetes
 kubectl delete deployment.apps/backend
 kubectl delete service/backend
 kubectl delete deployment.apps/postgres
