@@ -24,12 +24,8 @@ if [yarn](https://yarnpkg.com) is not installed, install it
 
 ## configure the reactjs frontend 
 
-this project waas bootstrapped with create react app (https://github.com/facebook/create-react-app)
+this project waas bootstrapped with [create react app](https://github.com/facebook/create-react-app)
 
-clone the git repository
-```
-git clone ...
-```
 navigate the frontend 
 ```
 cd todo-app/frontend
@@ -38,8 +34,6 @@ the following command install the required packages
 ```
 yarn install 
 ```
-
-## run in dev mode then build for production 
 
 run the app in development mode in the project directory 
 ```
@@ -62,6 +56,7 @@ cd ~/todo-app/frontend
 ```
 
 if everything runs correctly, the script will output something like this 
+
 <img src=images/deploy.png width="" height="80" >
 
 the following command returns the kuberntes service of my todo application: 
