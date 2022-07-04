@@ -37,40 +37,71 @@ the credentials to access the database for this application are as follows:
 the container registry is where your docker images are managed
 
 the main.yml file (./.github/workflows/...) allows to build the backend image from the dockerfile (./backend/...) and to push it directly in the github registry
-a new image is pushed at each push in the repository thanks to github actions (https://github.com/features/actions)
+a new image is pushed at each push in the repository thanks to [github actions](https://github.com/features/actions)
 
-![](images/ci.png )
+<img src=images/ci.png width="" height="100" >
 
-in a couple of minutes, you should have successfully built an pushed the images into the ghc repository 
+in a couple of minutes, you should have successfully built an pushed the images into the ghc repository! 
 
-![](images/package-backend.png )
+<img src=images/package.png width="" height="300" >
+
+
 
 ## deploy on kubernetes and check the status 
 
-we can now write a deployment and a service for our backend using the pushed image 
-it will also be necessary to do the same for our database
-the template of our yaml resources for kubernetes deployment is in ./kubernetes/...
-
-run rhe `deploy.sh` script 
+run the `deploy.sh` script
 ```
-./ deploy.sh
+cd ~/todo-app/backend
+./deploy.sh
 ```
 
-if everything runs correctly the script will output something like this 
-![](images/deploy-backend.png )
+if everything runs correctly the script will output something like this.
 
-the following command returns the kubernetes services of the todo application and the database: 
-`kubectl get services`
+<img src=images/deploy-backend.png width="" height="130" >
 
-the following command returns all the pods running in your kubernetes cluster: 
-`kubectl get pods`
+the following command returns the kuberntes service of my todo application: 
+```
+kubectl get services
+```
+<img src=images/services.png width="" height="100" >
 
-you can tail the log of one of the pods by running: 
-`kubectl logs -f <pod name>`
+the following command returns all the pods running in the kubernetes cluster:
+```
+kubectl get pods
+```
+<img src=images/pods.png width="" height="90" >
 
+
+you can tail the log of one of the pods by running:
+```
+kubectl logs -f <pod name>
+```
+example: `kubectl logs  -f backend-856b78b7fd-9pxck`
+
+<img src=images/logs.png width="" height="260" >
+
+## undeploy 
+
+if we make changes to the image, we need to delete the service and the pods by running undeploy.sh then redo the deployment 
+
+run the `undeploy.sh` script
+```
+cd ~/todo-app/backend
+./undeploy.sh
+```
 ## testing the backend application
 
-it should display the todo tasks in the todotask table that was create in the database 
+to test the backend application locally, we have to forward our backend service to the port 8080 by running: 
+```
+kubectl port-forward service/backend 8080:8080  
+```
+the following command should display the todo tasks in the todotask table that was create in the database 
+```
+curl localhost:8080/api/task
+```
+
+
+
 
 
 
