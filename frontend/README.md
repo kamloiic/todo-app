@@ -59,7 +59,7 @@ if everything runs correctly, the script will output something like this
 
 <img src=images/deploy.png width="" height="80" >
 
-the following command returns the kuberntes service of my todo application: 
+the following command returns the kubernetes service of my todo application: 
 ```
 kubectl get services
 ```

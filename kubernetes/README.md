@@ -51,3 +51,9 @@ kubectl get ingress
 
 type the external ip that we saved earlier in a browser and you will see the todo application
 
+
+## troubleshooting
+
+instance blocking on terminating mode: 
+
+kubectl patch ... -n default -p ‘{“metadata”:{“finalizers”:[]}}’ --type=merge
