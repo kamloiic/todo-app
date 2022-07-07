@@ -1,4 +1,4 @@
-# get started with kpack 
+# kpack 
 
 kpack is a k-native platform which provides builds of oci images aas a aplatform implementation of buildpacks
 
@@ -34,7 +34,7 @@ kubectl get images -A
 ```
 if everything runs correctly, it will output something like this 
 
-<img src=images/images.png width="" height="40" >
+<img src=images/images.png width="" height="60" >
 
 we also use `stern` to tail the logs during the builds
 to instal stern 
