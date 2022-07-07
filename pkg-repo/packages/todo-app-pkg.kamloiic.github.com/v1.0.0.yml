@@ -12,7 +12,7 @@ spec:
     spec:
       fetch:
         - imgpkgBundle:
-            image: ghcr.io/kamloiic/todo-app-pkg@sha256:b48869383a53726acd2c085386846ceb0f2aa17014ff015f37da0d32ecdf0c7b
+            image: ghcr.io/kamloiic/todo-app-pkg@sha256:10632b639ec0442e7731bf4d67a8a37868a97aa4ec6befe37a729f53ac6a0bf4
       template:
         - ytt:
             paths:

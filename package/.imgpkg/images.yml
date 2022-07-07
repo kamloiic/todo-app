@@ -7,14 +7,14 @@ images:
       - resolved:
           tag: latest
           url: ghcr.io/kamloiic/todo-backend:latest
-  image: ghcr.io/kamloiic/todo-backend@sha256:ff8a4b5a11b477459d4b66790437437ff3767203947730afc0ec2461e4fa84d6
+  image: ghcr.io/kamloiic/todo-backend@sha256:dd1ec1fb77cb8922aad70dc1fccdbe716685d11722cef30fb294f0b5042adea5
 - annotations:
     kbld.carvel.dev/id: ghcr.io/kamloiic/todo-frontend:latest
     kbld.carvel.dev/origins: |
       - resolved:
           tag: latest
           url: ghcr.io/kamloiic/todo-frontend:latest
-  image: ghcr.io/kamloiic/todo-frontend@sha256:9c0e09b0c6236d8e4e08f64623101335fc65517445093ab0c6f97e7e9480c905
+  image: ghcr.io/kamloiic/todo-frontend@sha256:21b25657ecbacbc2a0a11bc7376244e1174e9620140c86cb89624738638d5292
 - annotations:
     kbld.carvel.dev/id: postgres
     kbld.carvel.dev/origins: |

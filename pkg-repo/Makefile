@@ -10,11 +10,16 @@ push-publish-image:
 register-package:
 	tanzu package repository add todo-app-repo \
   --url ghcr.io/kamloiic/todo-app-pkg-repo:1.0.0 \
-  --namespace todo-app \
+  --namespace todoapp \
   --create-namespace
 
 install-package:
 	tanzu package install todo-app \
   --package-name todo-app-pkg.kamloiic.github.com \
   --version 1.0.0 \
-  --namespace todo-app
+  --namespace todoapp
+
+update-package: 
+  tanzu package repository update todo-app-repo \         
+  --url ghcr.io/kamloiic/todo-app-pkg-repo:1.0.0 \
+  --namespace todo 

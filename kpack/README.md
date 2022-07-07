@@ -46,6 +46,14 @@ to see the logs during the builds
 stern <app-name>
 ```
 
+# kapp-controller 
+
+kapp-controller is, like kapp, a tool from the carvel suite
+
+it gives us a way to fetch, template and deploy our apps on kubernetes and keep our apps up to date when our repo's code source changes
+
+
+
 
 
 
